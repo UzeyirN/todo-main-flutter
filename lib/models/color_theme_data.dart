@@ -54,8 +54,11 @@ class ColorThemeData with ChangeNotifier {
     useMaterial3: true,
   );
 
+  bool isPurple = true;
+
   void switchTheme(bool selected) {
     _selectedThemeData = selected ? _purpleTheme : _greenTheme;
+    isPurple = selected;
     notifyListeners();
   }
 

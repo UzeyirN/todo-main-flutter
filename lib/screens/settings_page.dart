@@ -12,8 +12,6 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool _value = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,16 +30,18 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   Card _buildSettingsCard(ColorThemeData themeData) {
+    bool value = Provider.of<ColorThemeData>(context).isPurple;
+
     return Card(
       child: SwitchListTile(
-        value: _value,
+        value: value,
         onChanged: (bool value) {
           setState(() {
-            _value = value;
+            value = value;
           });
           themeData.switchTheme(value);
         },
-        title: _value ? purpleText : greenText,
+        title: value ? purpleText : greenText,
         inactiveThumbColor: Colors.white,
         inactiveTrackColor: Colors.green,
       ),
