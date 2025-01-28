@@ -5,7 +5,10 @@ import 'package:todo_demo/models/item_data.dart';
 
 import 'my_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ColorThemeData().createSharedPrefThemeObject();
+  await ItemData().createItemSharedPrefObject();
   runApp(
     MultiProvider(
       providers: [

@@ -17,7 +17,7 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dismissible(
-      key: Key(title),
+      key: UniqueKey(),
       onDismissed: (direction) {
         removeAt();
       },
